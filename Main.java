@@ -1,11 +1,16 @@
-import java.net.*;
-public class Main {
-    public static void main(String arg[]){
-        try {
-            ServerSocket server = new ServerSocket(3000);
-            Socket s = server.accept();
-
-            System.out.println("Connected");
-        }catch(Exception e){}
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+ 
+public class Main{
+  public static void main(String[] args) throws IOException{
+    ServerSocket listener = new ServerSocket(8080);
+    while(true){
+      Socket sock = listener.accept();
+      new PrintWriter(sock.getOutputStream(), true).
+                println("Goodbye, World!");
+      sock.close();
     }
+  }
 }
