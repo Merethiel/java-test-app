@@ -5,7 +5,7 @@ import java.net.Socket;
  
 public class Main{
   public static void main(String[] args) throws IOException{
-    ServerSocket listener = new ServerSocket(8080);
+    ServerSocket listener = new ServerSocket(3000);
     while(true){
       Socket sock = listener.accept();
       new PrintWriter(sock.getOutputStream(), true).
